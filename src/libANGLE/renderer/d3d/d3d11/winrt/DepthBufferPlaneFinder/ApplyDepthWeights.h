@@ -11,9 +11,13 @@
 
 #pragma once
 
-#include <intsafe.h>
-
 #define DEPTH_ARRAY_SIZE (UINT16_MAX + 1)
+
+#if USE_SIMDE
+#include "simde/x86/sse3.h"
+#else
+#include <intsafe.h>
+#endif
 
 // Weights each pixel by using the depth value to look up a weight that is precomputed.
 __forceinline float WeightDepth(unsigned int const& depth, float const* depthWeightArray)
@@ -69,4 +73,3 @@ static void InitDepthCurveArray(
         }
     }
 }
-

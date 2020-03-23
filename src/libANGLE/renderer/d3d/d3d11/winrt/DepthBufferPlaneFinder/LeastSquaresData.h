@@ -11,6 +11,13 @@
 
 #pragma once
 
+#if USE_SIMDE
+#include "simde/x86/sse3.h"
+#else
+
+#endif
+
+
 namespace HolographicDepthBasedImageStabilization
 {
     struct LeastSquaresData

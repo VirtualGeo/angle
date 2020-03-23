@@ -11,8 +11,14 @@
 
 #pragma once
 
+#if USE_SIMDE
+#include "simde/x86/sse3.h"
+#else
+#endif
+
 #include "ApplyDepthWeights.h"
 #include "LeastSquaresData.h"
+
 
 namespace HolographicDepthBasedImageStabilization {
     
@@ -36,7 +42,7 @@ namespace HolographicDepthBasedImageStabilization {
         unsigned int const& outHeight,
         unsigned short const& invalidDepthValue)
     {
-        using namespace DirectX;
+        //using namespace DirectX;
 
         uint16_t* depthRow = reinterpret_cast<uint16_t*>(pData);
         for (unsigned int v = 0; v < outHeight; ++v)
@@ -122,7 +128,7 @@ namespace HolographicDepthBasedImageStabilization {
             data.sumVV      += sumWeightsRow * v * v;
             data.sumV       += sumWeightsRow * v;
         
-            depthRow = reinterpret_cast<uint16_t*>(reinterpret_cast<byte*>(depthRow) + rowPitch);
+            depthRow = reinterpret_cast<uint16_t*>(reinterpret_cast<uint8_t*>(depthRow) + rowPitch);
         }
     }
 }
