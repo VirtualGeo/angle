@@ -1,0 +1,14 @@
+﻿La génération a démarré 28/02/2020 10:58:23.
+     1>Projet "E:\Dev\Hololens\Holographic_Projects\HolographicAppForOpenGLES1\HolographicAppForOpenGLES1\HolographicAppForOpenGLES1.vcxproj" sur le nœud 2 (Rebuild cible(s)).
+     1>Génération à l'aide des outils version "14.0".
+     1>Cible "_CheckForInvalidConfigurationAndPlatform" dans le fichier "C:\Program Files (x86)\MSBuild\14.0\bin\Microsoft.Common.CurrentVersion.targets" du projet "E:\Dev\Hololens\Holographic_Projects\HolographicAppForOpenGLES1\HolographicAppForOpenGLES1\HolographicAppForOpenGLES1.vcxproj" (point d'entrée) :
+       Utilisation de la tâche "Error" à partir de l'assembly "Microsoft.Build.Tasks.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Tâche "Error"
+     1>C:\Program Files (x86)\MSBuild\14.0\bin\Microsoft.Common.CurrentVersion.targets(724,5): error : The OutputPath property is not set for project 'HolographicAppForOpenGLES1.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='ARM'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.
+       Exécution de la tâche "Error" terminée -- ÉCHEC.
+     1>Génération de la cible "_CheckForInvalidConfigurationAndPlatform" terminée dans le projet "HolographicAppForOpenGLES1.vcxproj" -- ÉCHEC.
+     1>Génération du projet "E:\Dev\Hololens\Holographic_Projects\HolographicAppForOpenGLES1\HolographicAppForOpenGLES1\HolographicAppForOpenGLES1.vcxproj" terminée (Rebuild cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:00.00
