@@ -524,9 +524,12 @@ EGLint HolographicSwapChain11::updateHolographicRenderingParameters(
             }
 
             // A new depth stencil view is also needed.
-            return resetOffscreenBuffers(
+            // BCS : In Hololens 2 the back buffer is different every frame (rotation of 4 BackBuffer)
+            // The return prevent the "hololens" hack on uHolographicViewMatrix
+            /*return*/resetOffscreenBuffers(
                 static_cast<EGLint>(mRenderTargetSize.Width),
                 static_cast<EGLint>(mRenderTargetSize.Height));
+
         }
     }
 
