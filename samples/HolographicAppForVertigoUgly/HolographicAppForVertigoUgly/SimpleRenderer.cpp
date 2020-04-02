@@ -252,27 +252,39 @@ void createScene(Windows::Graphics::Holographic::HolographicSpace^ pHolographicS
 	lSceneGraph->insertChild(lTransformNode);
 
 	// Create the evaluator and insert some key frames.
-	VrLinearEvaluator<VrVec3f, VrFloat> *lEvaluator1 = new VrLinearEvaluator<VrVec3f, VrFloat>;
-	VrLinearEvaluator<VrVec3f, VrFloat>::VrKeyFrame lLinearKF;
+	VrLinearEvaluator<VrVec3d> *lEvaluator1 = new VrLinearEvaluator<VrVec3d>;
+	VrLinearEvaluator<VrVec3d>::VrKeyFrame lLinearKF;
 	lLinearKF.mTime = 0.0;
-	lLinearKF.mData = VrVec3f(0.0f, 0.0f, 0.0f);
+	lLinearKF.mData = VrVec3d(-1.0f, 0.0f, -2.0f);
 	lEvaluator1->addKeyFrame(lLinearKF);
+
+	lLinearKF.mTime = 5.0;
+	lLinearKF.mData = VrVec3d(1.0f, 0.0f, -2.0f);
+	lEvaluator1->addKeyFrame(lLinearKF);
+
+	lLinearKF.mTime = 10.0;
+	lLinearKF.mData = VrVec3d(-1.0f, 0.0f, -2.0f);
+	lEvaluator1->addKeyFrame(lLinearKF);
+
+	/*
 	lLinearKF.mTime = 2.5;
-	lLinearKF.mData = VrVec3f(5.0f, 5.0f, 5.0f);
+	lLinearKF.mData = VrVec3d(5.0f, 5.0f, 5.0f);
 	lEvaluator1->addKeyFrame(lLinearKF);
 	lLinearKF.mTime = 7.5;
-	lLinearKF.mData = VrVec3f(-5.0f, -5.0f, -5.0f);
+	lLinearKF.mData = VrVec3d(-5.0f, -5.0f, -5.0f);
 	lEvaluator1->addKeyFrame(lLinearKF);
 	lLinearKF.mTime = 10.0;
-	lLinearKF.mData = VrVec3f(0.0f, 0.0f, 0.0f);
+	lLinearKF.mData = VrVec3d(0.0f, 0.0f, 0.0f);
 	lEvaluator1->addKeyFrame(lLinearKF);
+	*/
 
 	// Create the controller.
 	// Set the interpolation type.
-	VrKeyFrameController<VrLinearEvaluator<VrVec3f, VrFloat> > *lController1 = new VrKeyFrameController<VrLinearEvaluator<VrVec3f, VrFloat> >;
+	VrKeyFrameController<VrLinearEvaluator<VrVec3d> > *lController1 = new VrKeyFrameController<VrLinearEvaluator<VrVec3d> >;
 	lController1->setTarget(lTransformNode);
 	lController1->setAttributeName(VrString("Position"));
 	lController1->setEvaluator(lEvaluator1);
+	
 
 	// -->Sequence
 	VrSequence *lSequence = new VrSequence;
@@ -283,8 +295,8 @@ void createScene(Windows::Graphics::Holographic::HolographicSpace^ pHolographicS
 	// Animation : box rotation.
 
 	// Create the evaluator and insert some key frames.
-	VrQuatfSlerpEvaluator* lEvaluator2 = new VrQuatfSlerpEvaluator();
-	VrQuatfSlerpEvaluator::VrKeyFrame lSlerpKF;
+	VrQuatdSlerpEvaluator* lEvaluator2 = new VrQuatdSlerpEvaluator();
+	VrQuatdSlerpEvaluator::VrKeyFrame lSlerpKF;
 	lSlerpKF.mTime = 0.0;
 	lSlerpKF.mData = VrQuatf(0.f, 0.f, 0.f);
 	lEvaluator2->addKeyFrame(lSlerpKF);
@@ -294,7 +306,7 @@ void createScene(Windows::Graphics::Holographic::HolographicSpace^ pHolographicS
 
 	// Create the controller.
 	// Set the interpolation type.
-	VrQuatfSlerpController* lController2 = new VrQuatfSlerpController();
+	VrQuatdSlerpController* lController2 = new VrQuatdSlerpController();
 	lController2->setTarget(lTransformNode);
 	lController2->setAttributeName(VrString("Orientation"));
 	lController2->setEvaluator(lEvaluator2);
